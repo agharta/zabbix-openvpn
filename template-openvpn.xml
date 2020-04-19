@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>4.4</version>
-    <date>2020-04-19T21:26:23Z</date>
+    <date>2020-04-19T21:34:14Z</date>
     <groups>
         <group>
             <name>Templates</name>
@@ -36,14 +36,17 @@
             <discovery_rules>
                 <discovery_rule>
                     <name>openvpn vpn_user</name>
-                    <key>discovery.openvpn.ipp</key>
-                    <lifetime>1d</lifetime>
+                    <key>discovery.openvpn</key>
+                    <delay>5m</delay>
+                    <lifetime>7d</lifetime>
                     <item_prototypes>
                         <item_prototype>
                             <name>openvpn byte_received {#VPNUSER}</name>
                             <key>user_byte_received.openvpn[{#VPNUSER}]</key>
                             <delay>5s</delay>
-                            <units>b\s</units>
+                            <history>30d</history>
+                            <trends>90d</trends>
+                            <units>bits/s</units>
                             <applications>
                                 <application>
                                     <name>OpenVPN</name>
@@ -64,7 +67,9 @@
                             <name>openvpn byte_sent {#VPNUSER}</name>
                             <key>user_byte_sent.openvpn[{#VPNUSER}]</key>
                             <delay>5s</delay>
-                            <units>b\s</units>
+                            <history>30d</history>
+                            <trends>90d</trends>
+                            <units>bits/s</units>
                             <applications>
                                 <application>
                                     <name>OpenVPN</name>
